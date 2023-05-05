@@ -22,68 +22,6 @@ print(renkler[:2])                                      # baştan 2.indexe kadar
 print(renkler[0:3])                                     # 0.indeten 3.idex hariç yazdırdık.. / ['Ela', 'Kirmizi', 'Beyaz']
 print(renkler[0:5:2])                                   # 0,2,4.indexleri yazdırdık.  / ['Ela', 'Beyaz', 'Turuncu']
 
-# listelerde metotlar
-
-# listenin sonuna eleman ekleme:
-
-renkler.append("Gri")                                   # / ['Ela', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', 'Gri']
-print(renkler)     
-
-# listeyi temizleme : 
-renkler.clear()        
-print(renkler)                                          #  / []
-renkler.copy()
-print(renkler)
-
-# listedeki elemanları sayma:
-
-print(renkler.count("Kirmizi"))                         # / 1
-
-# listenin sonuna birden fazla eleman ekleme:
-
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]  # ilk liste
-renkler2 = ["Kahvrengi","Mor"]                          # ikinci liste
-renkler.extend(renkler2)                                # extend ile listenin sonuna elemanları gene elemanmış gibi ekledik
-print(renkler)                                          # / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', 'Kahvrengi', 'Mor']
-
-# kaçıncı indexte olduğunu bulma : 
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
-print(renkler.index("Beyaz"))                           # / 2 
-
-# listeye belirli indexe eleman ekleme
-renkler.insert(0,"Turkuaz")                             # / ['Turkuaz', 'Ela', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', 'Gri']
-print(renkler)
-
-# listeden herhangi bir elemanı söküp almak , başka değişken içine atmamız gerekir:
-
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]  # 
-silinen_eleman=renkler.pop()                            # 
-print(renkler)                                          # / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari']
-print(silinen_eleman)                                   # / Turuncu
-
-# listedeki herhangi bir elemanı silmek : 
-
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
-renkler.remove("Kirmizi")                               #  /  ['Turkuaz', 'Ela', 'Beyaz', 'Sari', 'Turuncu', 'Gri']
-print(renkler)
-
-# listeyi tersten yazmak : 
-
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]  # 
-print(renkler)                                          # / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
-renkler.reverse()                                       # 
-print(renkler)                                          # / ['Turuncu', 'Sari', 'Beyaz', 'Kirmizi', 'Siyah']
-
-
-# önemli not: listeyi sort edince eski listeye dönemeyiz. bunun için mevcut listenin bir kopyasını alıp sorted yapmamız gerekir.
-
-renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]  # 
-print(renkler)                                          # / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
-renkler.sort()                                          # 
-print(renkler)                                          # / ['Beyaz', 'Kirmizi', 'Sari', 'Siyah', 'Turuncu']
-renkler.sort(reverse=True)                              # 
-print(renkler)                                          # / ['Turuncu', 'Siyah', 'Sari', 'Kirmizi', 'Beyaz']
-
 
 #min , max değer bulma : 
 
@@ -123,3 +61,131 @@ print(stringRenkler)                                    # / Siyah-Kirmizi-Beyaz-
 
 renkler3 = stringRenkler.split("-")                     # herhangi bir string ifadeyi split metotu ile liste haline çevirebiliriz.
 print(renkler3)                                         # / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+
+
+
+# listelere ait metodlar
+
+# 1  - .append() metodu listenin sonuna bir öğe eklemek için kullanılır. Öğeyi belirtilen listenin sonuna ekler.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"] 
+renkler.append("Gri")                                   
+print(renkler)   
+# / ['Ela', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', 'Gri']
+
+    # Ayrıca, append() metodu bir öğe yerine bir liste ekleyebilir ve böylece listenin sonuna başka bir liste ekleyebilirsiniz.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"] 
+print(renkler)
+renkler.append(["Gri","Mor"])                                   
+print(renkler)
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', ['Gri', 'Mor']]
+
+
+# 2  - .clear() metodu Listenin elemanlarını silmek için kullanılır. Bu metod, listedeki tüm öğeleri siler ve boş bir liste bırakır.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"] 
+print(renkler) 
+renkler.clear()        
+print(renkler)                                          
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+#  / []
+
+
+# 3  - .copy() metodu bir listenin shallow kopyasını oluşturur. Yani, yeni bir liste oluşturur ve orijinal listenin elemanlarını kopyalar, ancak bu elemanlar değiştirilirse orijinal liste etkilenmez.
+
+original_list = [1, 2, 3, 4]
+new_list = original_list.copy() # new_list shallow list oluyor.
+original_list.append(5)
+print(original_list) 
+print(new_list)  
+# / [1, 2, 3, 4, 5]
+# / [1, 2, 3, 4]
+
+
+
+# 4  - .count() metodu bir listenin içinde belirtilen öğenin kaç defa bulunduğunu sayar ve sonucu geri döndürür.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"] 
+print(renkler.count("Kirmizi"))                         
+# / 1
+
+
+# 5  - .extend() metodu  bir listeye başka bir listenin tüm elemanlarını eklemek için kullanılır. Yani bir listeye başka bir listenin elemanlarını eklemek istediğimizde kullanabiliriz.
+
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]  
+renkler2 = ["Kahvrengi","Mor"]                          
+renkler.extend(renkler2)                                
+print(renkler)                                          
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu', 'Kahvrengi', 'Mor']
+
+    # extend() metodu ayrıca bir listeyle birlikte başka bir iterable (liste, tuple, set vb.) de alabilir ve bu iterable'ın elemanlarını da listeye ekler.
+
+liste = [1, 2, 3]
+tuple = (4, 5, 6)
+set = {7, 8, 9}
+liste.extend(tuple)
+liste.extend(set)
+print(liste)
+# / [1, 2, 3, 4, 5, 6, 8, 9, 7]
+
+
+# 6  - .index() metodu  listedeki belirli bir öğenin ilk indeksini döndürür. eğer belirtilen öğe listede yoksa ValueError hatası verir. Başlangıç ve bitiş indeksleri belirtilirse, arama sadece bu indeksler arasında yapılır.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
+print(renkler.index("Beyaz"))                          
+# / 2 
+
+# 7  - .insert() metodu 
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
+print(renkler)
+renkler.insert(0,"Turkuaz")                             
+print(renkler)
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+# / ['Turkuaz', 'Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+
+
+# 8  - .pop() metodu bir listeden verilen konumdaki öğeyi çıkartır ve bu öğeyi geri döndürür. Eğer indeks belirtilmezse son öğe çıkartılır. Listede değişiklik yapar.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]   
+silinen_eleman=renkler.pop()                             
+print(renkler)                                          
+print(silinen_eleman)                                   
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari']
+# / Turuncu
+
+
+# 9  - .remove() metodu bir listenin belirli bir elemanını kaldırmak için kullanılır. Bu metot, listede bulunan ilk öğeyi kaldırır. Eğer listede bulunmayan bir elemanı remove() metoduyla kaldırmaya çalışırsanız, ValueError hatası alırsınız. Bu durumda, öncelikle listenin elemanlarını kontrol etmeniz gerekmektedir.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
+print(renkler)
+renkler.remove("Kirmizi")                              
+print(renkler)
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+#  /  ['Siyah', 'Beyaz', 'Sari', 'Turuncu',]
+
+
+# 10 - .reverse() metodu bir listedeki elemanları ters çevirir. Yani, listedeki son elemanı ilk sıraya, ilk elemanı son sıraya yerleştirir.
+# Not: reverse() metodu, listeyi doğrudan değiştirir ve herhangi bir değer döndürmez.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]   
+print(renkler)                                          
+renkler.reverse()                                       
+print(renkler)                                          
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+# / ['Turuncu', 'Sari', 'Beyaz', 'Kirmizi', 'Siyah']
+
+# 11 - .sort() metodu bir listenin elemanlarını sıralamak için kullanılır. Varsayılan olarak, bu metot liste elemanlarını artan sırada sıralar.
+# sort() metodu ayrıca, key parametresi kullanılarak bir sıralama anahtarı belirlemek için de kullanılabilir.
+
+renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]   
+print(renkler)                                          
+renkler.sort()                                          
+print(renkler)                                          
+renkler.sort(reverse=True)      # tersten sıralama                          
+print(renkler)                                         
+# / ['Siyah', 'Kirmizi', 'Beyaz', 'Sari', 'Turuncu']
+# / ['Beyaz', 'Kirmizi', 'Sari', 'Siyah', 'Turuncu']
+# / ['Turuncu', 'Siyah', 'Sari', 'Kirmizi', 'Beyaz']
