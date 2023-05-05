@@ -2,6 +2,9 @@
 
 # tanım : verileri sıralı bir şekilde hafızada tutmaya yarayan veri yapısıdır.
 
+liste = [] 
+liste=list() # aynı şeydir. 
+
 renkler = ["Siyah","Kirmizi","Beyaz","Sari","Turuncu"]
 
 print(renkler)                                          # - bu şekilde bütün liste ekrana bastırılır.
